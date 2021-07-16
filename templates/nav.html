@@ -1,0 +1,137 @@
+{% load static %}
+{% load cart_template_tags %}
+{% load category_template_tags %}
+
+<style>
+	.topbar {
+		background-color: white;
+		color: black !important;
+	}
+	.topbar a:hover{
+		color: black;
+	}
+</style>
+<!-- Header -->
+<header class="header1">
+		<!-- Header desktop -->
+		<div class="container-menu-header">
+			<div class="topbar">
+				<div class="topbar-social">
+					<a href="https://www.facebook.com/Infinite-SHOES-104027544961818" class="topbar-social-item fab fa-facebook"></a>
+					<a href="https://www.instagram.com/brucerateyiwa/" class="topbar-social-item fab fa-instagram"></a>
+					<a href="https://wa.me/+263715229778" class="topbar-social-item fab fa-whatsapp"></a>
+				</div>
+
+				<span class="topbar-child15">
+					Welcome to Infinite Shop Online
+				</span>
+
+				<div class="topbar-child2">
+	
+					<div class="topbar-language rs1-select2">
+						<select class="selection-1" name="time">
+							<option>USD</option>
+						</select>
+					</div>
+				</div>
+			</div>
+
+			<div class="wrap_header">
+				<!-- Logo -->
+				<a href="/" class="logo">
+					<p style="color: black; "><b style="font-size: 22px;">INFINITE SHOP ONLINE</p>
+				</a>
+
+				<!-- Menu -->
+				<div class="wrap_menu">
+					<nav class="menu">
+						<ul class="main_menu">
+							<li>
+								<a href="/">Home</a>
+
+							</li>
+
+							<li>
+								<a href="/shop/">Shop</a>
+							</li>
+
+							{% categories %}
+
+						</ul>
+					</nav>
+				</div>
+
+				<!-- Header Icon -->
+				<div class="header-icons">
+		
+				</div>
+			</div>
+		</div>
+
+		<!-- Header Mobile -->
+		<div class="wrap_header_mobile">
+			<!-- Logo moblie -->
+			<a  class="logo-mobile">
+				<img>
+			</a>
+
+			<!-- Button show menu -->
+			<div class="btn-show-menu">
+				<!-- Header Icon mobile -->
+				<div class="header-icons-mobile">
+				
+				<div class="btn-show-menu-mobile hamburger hamburger--squeeze">
+					<span class="hamburger-box">
+						<span class="hamburger-inner"></span>
+					</span>
+				</div>
+			</div>
+		</div>
+
+		<!-- Menu Mobile -->
+		<div class="wrap-side-menu" >
+			<nav class="side-menu">
+				<ul class="main-menu">
+					<li class="item-topbar-mobile p-l-20 p-t-8 p-b-8">
+						<span class="topbar-child1">
+							Welcome to Infinite Shop Online
+						</span>
+					</li>
+
+					<li class="item-topbar-mobile p-l-20 p-t-8 p-b-8">
+						<div class="topbar-child2-mobile">
+							<span class="topbar-email">
+			
+							</span>
+
+							<div class="topbar-language rs1-select2">
+								<select class="selection-1" name="time">
+									<option>USD</option>
+									<option>EUR</option>
+								</select>
+							</div>
+						</div>
+					</li>
+
+					<li class="item-topbar-mobile p-l-10">
+						<div class="topbar-social-mobile">
+							<a href="https://www.facebook.com/Infinite-SHOES-104027544961818" class="topbar-social-item fab fa-facebook"></a>
+							<a href="#" class="topbar-social-item fab fa-instagram"></a>
+							<a href="https://wa.me/+263715229778" class="topbar-social-item fab fa-whatsapp"></a>
+						</div>
+					</li>
+
+					<li class="item-menu-mobile">
+						<a href="/">Home</a>
+					</li>
+
+					<li class="item-menu-mobile">
+						<a href="/shop">Shop</a>
+					</li>
+
+					{% categories_mobile %}
+
+				</ul>
+			</nav>
+		</div>
+	</header>

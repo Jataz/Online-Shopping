@@ -1,0 +1,417 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load category_template_tags %}
+{% load slide_template_tags %}
+{% block content %}
+<style>
+	/*[ Block2 ]
+///////////////////////////////////////////////////////////
+*/
+.block2-labelpromotion::before,
+.block2-labelsale::before,
+.block2-labelnew::before 
+{
+  z-index: 100;
+  font-family: Montserrat-Regular;
+  font-size: 12px;
+  color: white;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 22px;
+  border-radius: 11px;
+  position: absolute;
+  top: 12px;
+  left: 12px;
+}
+
+.block2-labelsale::before {
+  background-color: white;
+  color: #000;
+  content: 'Sale';
+}
+
+.block2-labelnew::before {
+  background-color: #007bff;
+  content: 'New';
+}
+
+.block2-labelpromotion::before{
+	background-color: #000;
+	content: 'Promotion';
+	width: 70px;
+  }
+
+  .btn-dark {
+    color: #fff;
+    background-color: #000;
+    border-color: #000;
+}
+
+.btn-outline-dark {
+    color: #000;
+    border-color: #000;
+}
+
+
+</style>
+
+	<!-- Slide1 -->
+	<section class="slide1">
+		<div class="wrap-slick1">
+			<div class="slick1">
+
+				{% slides %}
+
+			</div>
+		</div>
+	</section>
+
+	<!-- Category start -->
+	<style>
+		.hov1{
+			background-color: rgb(228, 10, 10) !important;
+			color: black !important;
+			
+		}
+	</style>
+	<section class="banner bgwhite p-t-40 p-b-40">
+		<div class="container">
+			<div class="row">
+
+				{% categories_div %}
+
+			</div>
+		</div>
+	</section>
+
+	<!-- New Product -->
+	<style>
+		.newproduct{
+			margin-bottom: 2px;
+			padding-bottom: 2px;
+		}
+	</style>
+	<section class="newproduct bgwhite p-t-45 p-b-105">
+		<div class="container">
+			<div class="sec-title p-b-60">
+				<h3 class="m-text5 t-center">
+					Featured Products
+				</h3>
+			</div>
+
+			<!-- Slide2 -->
+			<div class="wrap-slick2" >
+				<div class="slick2" >
+
+					{% for item in object_list %}
+					
+					<div class="item-slick2 p-l-15 p-r-15">
+						<!-- Block2 -->
+						<div class="block2">
+							
+							<div class="block2-img wrap-pic-w of-hidden pos-relative block2-label{{item.get_label_display}}">
+								<a href="{{item.get_absolute_url}}">
+								<img src="{{ item.image.url }}" alt="IMG-PRODUCT" 
+								style="height: 370px; width:100%; "></a>
+							   
+							</div>
+							
+
+							<div class="block2-txt p-t-20 ">
+								<a class="block2-name dis-block s-text3 p-b-5" style="color: black;">
+									{{ item.title }}
+								</a>
+
+								{% if item.discount_price %}
+								<span class="block2-oldprice m-text7 p-r-5" style="color: black;">
+									${{ item.price }}
+								</span>
+
+								<span class="block2-newprice m-text8 p-r-5">
+									${{ item.discount_price }}
+								</span>
+								{% else %}
+								<span class="block2-price m-text6 p-r-5" style="color: black;">
+									${{ item.price }}
+								</span>
+								{% endif %}
+								
+
+								
+							</div>
+							
+						</div>
+					</div>
+				
+					{% endfor %}
+
+					
+				
+				</div>
+			</div>
+
+		</div>
+	</section>
+
+	<!-- ------------------Banner2  start ------------------------>
+	<style>
+		.banner2{
+			background-color: #fff;
+			margin-right: 1rem;
+			margin-left: 1rem;
+			margin-bottom: 0 !important;
+			padding-bottom: 0 !important;
+		}
+
+		.ban_img{
+			height: 680px;
+			width: 100%;
+		}
+		.ban5_img{
+			height: 580px;
+			width: 100%;
+		}
+
+		.btn-light {
+			color: #000;
+			background-color: #fff;
+			border-color: #fff;
+			border-radius: 20px;
+		}
+		.wrap-btn-slide1 a:hover{
+			background-color: whitesmoke;
+			color: #000 !important;
+			opacity: 0.7;
+	
+		}
+	</style>
+	
+	<!-- ------------------Banner2  start ------------------------>
+
+	<!-- ------------------Banner4  start ------------------------>
+<!-- Slide1 -->
+
+<style>
+	.slide1 button:hover{
+		background-color: white !important;
+		color: black;
+	}
+</style>
+<br><br>
+<section class="slide1">
+
+	
+	<div class="wrap-slick2">
+		<div class="slick1">
+			
+			<div class="item-slick1 item2-slick1" style="background-image: url('https://cdn.lifestyleasia.com/wp-content/uploads/sites/2/2021/05/24151335/fachry-zella-devandra-G_qgKCE9fE0-unsplash-scaled-1600x900.jpg');">
+					<div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
+						<span class="caption1-slide1 m-text1 t-center   m-b-15" data-appear="rollIn" >
+							<h2 style="color: rgb(34, 5, 5);">THE BEST SNEAKER COLLECTION</h2>
+						</span>
+						<h2 class="caption2-slide1 xl-text1 t-center   m-b-37" data-appear="lightSpeedIn">
+							
+						</h2>
+						<div class="wrap-btn-slide1 w-size1 " data-appear="slideInUp">
+							
+							<a href="/shop/" class="flex-c-m size2 bo-rad-23 s-text2 bgwhite hov1 trans-0-4">
+								Shop Now
+							</a>
+						</div>
+					</div>
+				</div>
+
+		</div>
+	</div>
+</section>
+
+<!-- ------------------Banner4  end ------------------------>
+
+	<!-- ------------------Banner3  start ------------------------>
+
+	<section class="banner2 bg5 p-t-55 p-b-55">
+		<h4 style="font-weight: 500;">Training's Essentials</h4>
+		<div class="">
+			<div class="row">
+				<div class="col-sm-10 col-md-8 col-lg-6 m-l-r-auto p-t-15 p-b-15">
+					<div class="pos-relative">
+						<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRejgo8kp4M6SzThcPz5l_5gUNy9B9NuZ8ZEA&usqp=CAU" alt="IMG-BANNER" class="ban_img">
+
+						<div class="ab-t-l sizefull flex-col-c-m p-l-15 p-r-15">
+							<br><br><br><br><br>
+							<br><br><br><br><br>
+							<span class="m-text9 p-t-45 fs-20-sm" style="color: rgb(105, 37, 37);">
+								Reebok Training essentials
+							</span>
+
+							<br>
+							
+
+								<div class="wrap-btn-slide1 w-size1 animated" data-appear="slideInUp">
+						
+							<a href="/shop/" class="flex-c-m size2 bo-rad-23 s-text2 bgwhite  trans-0-4">
+								Shop Now
+							</a>
+						</div>
+
+						</div>
+					</div>
+				</div>
+
+				<div class="col-sm-10 col-md-8 col-lg-6 m-l-r-auto p-t-15 p-b-15">
+					<div class="pos-relative">
+						<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz0dTHbDVMfB1sps5vd9FjXXeV_ttQl0SRPw&usqp=CAU"  alt="IMG-BANNER" class="ban_img">
+
+						<div class="ab-t-l sizefull flex-col-c-m p-l-15 p-r-15">
+							<br><br><br><br><br>
+							<br><br><br><br><br>
+							<span class="m-text9 p-t-45 fs-20-sm" style="color: black;">
+								Adidas training essentials
+							</span>
+
+							<br>
+							
+
+								<div class="wrap-btn-slide2 w-size1 animated" data-appear="slideInUp">
+						
+							<a href="/shop/" class="flex-c-m size2 bo-rad-23 s-text2  trans-0-4" style="background-color: black; color:white;">
+								Shop Now
+							</a>
+						</div>
+
+						</div>
+					</div>
+				</div>
+
+			
+			</div>
+		</div>
+	</section>
+	<!-- ------------------Banner3  end ------------------------>
+
+	<!-- ------------------Banner5  start ------------------------>
+
+	<section class="banner2 bg5 p-t-55 p-b-55">
+		<h4 style="font-weight: 500;">More Products</h4>
+		<div class="">
+			<div class="row">
+				<div class="col-sm-10 col-md-8 col-lg-4 m-l-r-auto p-t-15 p-b-15">
+					<div class="pos-relative">
+						<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRohLPWHyGpmfcBqsxwWWpV980oHtIoxtrEKA&usqp=CAU" alt="IMG-BANNER" class="ban5_img">
+
+						<div class="ab-t-l sizefull flex-col-c-m p-l-15 p-r-15">
+							<br><br><br><br><br>
+							<br><br><br><br><br>
+							<br><br><br><br><br>
+						
+						
+							<br>
+							
+
+								<div class="wrap-btn-slide1 w-size1 animated" data-appear="slideInUp">
+						
+							<a href="/shop/" class="flex-c-m size2 bo-rad-23 s-text2 bgwhite  trans-0-4">
+								Men's
+							</a>
+						</div>
+
+						</div>
+					</div>
+				</div>
+
+				<div class="col-sm-10 col-md-8 col-lg-4 m-l-r-auto p-t-15 p-b-15">
+					<div class="pos-relative">
+						<img src="https://static.nike.com/a/images/f_auto/dpr_2.0/h_573,c_limit/2c8754ce-6287-4e77-a198-1ad483fba257/nike-just-do-it.png" alt="IMG-BANNER" class="ban5_img">
+
+						<div class="ab-t-l sizefull flex-col-c-m p-l-15 p-r-15">
+							<br><br><br><br><br>
+							<br><br><br><br><br>
+							<br><br><br><br><br>
+
+							<br>
+							
+
+								<div class="wrap-btn-slide1 w-size1 animated" data-appear="slideInUp">
+						
+							<a href="/shop/" class="flex-c-m size2 bo-rad-23 s-text2 bgwhite  trans-0-4">
+								Women's
+							</a>
+						</div>
+
+						</div>
+					</div>
+				</div>
+
+				<div class="col-sm-10 col-md-8 col-lg-4 m-l-r-auto p-t-15 p-b-15">
+					<div class="pos-relative">
+						<img src="https://static.nike.com/a/images/f_auto/dpr_2.0/h_573,c_limit/414db494-7ebc-4d53-bbff-58d50b380a24/nike-just-do-it.png" alt="IMG-BANNER" class="ban5_img">
+
+						<div class="ab-t-l sizefull flex-col-c-m p-l-15 p-r-15">
+							<br><br><br><br><br>
+							<br><br><br><br><br>
+							<br><br><br><br><br>
+
+							<br>
+							
+
+								<div class="wrap-btn-slide1 w-size1 animated" data-appear="slideInUp">
+						
+							<a href="/shop/" class="flex-c-m size2 bo-rad-23 s-text2 bgwhite  trans-0-4">
+								Kids'
+							</a>
+						</div>
+
+						</div>
+					</div>
+				</div>
+			
+			</div>
+		</div>
+	</section>
+	<!-- ------------------Banner2  start ------------------------>
+
+
+	
+	
+
+	<!-- Shipping -->
+	<section class="shipping bgwhite p-t-62 p-b-46">
+		<div class="flex-w p-l-15 p-r-15">
+			<div class="flex-col-c w-size5 p-l-15 p-r-15 p-t-16 p-b-15 respon1">
+				<h4 class="m-text12 t-center">
+					Free Delivery 
+				</h4>
+			</div>
+
+			<div class="flex-col-c w-size5 p-l-15 p-r-15 p-t-16 p-b-15 bo2 respon2">
+				<h4 class="m-text12 t-center">
+					2 Days Return
+				</h4>
+
+				<span class="s-text11 t-center">
+					Simply return it within 2 days for an exchange.
+				</span>
+			</div>
+
+			<div class="flex-col-c w-size5 p-l-15 p-r-15 p-t-16 p-b-15 respon1">
+				<h4 class="m-text12 t-center">
+					Store Opening
+				</h4>
+
+				<span class="s-text11 t-center">
+					Shop open from Monday to Sunday
+				</span>
+			</div>
+		</div>
+	</section>
+
+	{% endblock content %}
+
+
+	
